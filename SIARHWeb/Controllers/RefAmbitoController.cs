@@ -8,8 +8,8 @@ using SIARH.Aplication.DTOs;
 using SIARH.Persistence;
 using SIARH.Persistence.Models;
 using SIARH.Persistence.UnitOfWork;
-using SIARH.Persistence.Services;
-using SIARH.Persistence.Services.Implements;
+using SIARH.Aplication.Services;
+
 
 namespace SIARHWeb.Controllers
 {
@@ -49,20 +49,21 @@ namespace SIARHWeb.Controllers
                 //RefEscalafon refEscalafon = mapper.Map<RefEscalafon>(totalDTO);
                 //RefAmbito refAmbito = mapper.Map<RefAmbito>(totalDTO);
 
-                RefEscalafon refEscalafon = new RefEscalafon();
-                refEscalafon.IdEscalafon = totalDTO.IdEscalafon;
-                refEscalafon.EscalafonDesc = totalDTO.EscalafonDesc;
-                refEscalafon.IdGrupoNivel = totalDTO.IdGrupoNivel;
-                refEscalafon.Nomenclatura = totalDTO.Nomenclatura;
+                //RefEscalafon refEscalafon = new RefEscalafon();
+                //refEscalafon.IdEscalafon = totalDTO.IdEscalafon;
+                //refEscalafon.EscalafonDesc = totalDTO.EscalafonDesc;
+                //refEscalafon.IdGrupoNivel = totalDTO.IdGrupoNivel;
+                //refEscalafon.Nomenclatura = totalDTO.Nomenclatura;
 
-                RefAmbito refAmbito = new RefAmbito();
-                refAmbito.IdAmbito= totalDTO.IdAmbito;
-                refAmbito.AmbitoDesc = totalDTO.AmbitoDesc;
-                await refAmbitoService.Add(refAmbito);
-                await refEscalafonService.Add(refEscalafon);
+                //RefAmbito refAmbito = new RefAmbito();
+                //refAmbito.IdAmbito= totalDTO.IdAmbito;
+                //refAmbito.AmbitoDesc = totalDTO.AmbitoDesc;
+
+                await refAmbitoService.Add(totalDTO);
+                //await refEscalafonService.Add(refEscalafon);
                 //await unitOfWork.CompleteAsync();
 
-                return CreatedAtRoute("GetAmbito", new { id = refAmbito.IdAmbito }, refAmbito);                
+                //return CreatedAtRoute("GetAmbito", new { id = refAmbito.IdAmbito }, refAmbito);                 VEERR
             }
 
             return new JsonResult("No se pudo completar la transaccion") { StatusCode = 500 };

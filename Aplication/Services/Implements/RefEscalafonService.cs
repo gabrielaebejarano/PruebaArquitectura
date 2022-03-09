@@ -1,6 +1,4 @@
 ﻿using SIARH.Persistence.Models;
-using SIARH.Persistence.Repositories;
-using SIARH.Persistence.Repositories.Implements;
 using SIARH.Persistence.UnitOfWork;
 using System;
 using System.Collections.Generic;
@@ -9,27 +7,25 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIARH.Persistence.Services.Implements
+namespace SIARH.Aplication.Services.Implements
 {
-
-    public class RefAmbitoService : IRefAmbitoService
+    public class RefEscalafonService: IRefEscalafonService
     {
-
         private readonly IUnitOfWork _unitOfWork;
-        public RefAmbitoService(IUnitOfWork unitOfWork)
+        public RefEscalafonService(IUnitOfWork unitOfWork)
         {
             this._unitOfWork = unitOfWork;
         }
-        public async Task<bool> Add(RefAmbito entity)
+        public async Task<bool> Add(RefEscalafon entity)
         {
-            await _unitOfWork.RefAmbito.Add(entity);
+            await _unitOfWork.RefEscalafon.Add(entity);
             await _unitOfWork.CompleteAsync();
             return true;
         }
 
-        public async Task<IEnumerable<RefAmbito>> All()
+        public async Task<IEnumerable<RefEscalafon>> All()
         {
-            return await _unitOfWork.RefAmbito.All();
+            return await _unitOfWork.RefEscalafon.All();
         }
 
         public async Task<bool> Delete(int id)
@@ -37,7 +33,7 @@ namespace SIARH.Persistence.Services.Implements
             return await _unitOfWork.RefAmbito.Delete(id);
         }
 
-        public Task<IEnumerable<RefAmbito>> Find(Expression<Func<RefAmbito, bool>> predicate)
+        public Task<IEnumerable<RefEscalafon>> Find(Expression<Func<RefEscalafon, bool>> predicate)
         {
             throw new NotImplementedException();
         }
@@ -52,5 +48,14 @@ namespace SIARH.Persistence.Services.Implements
             return await _unitOfWork.RefAmbito.Upsert(entity);
         }
 
+        public Task<bool> Upsert(RefEscalafon entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<RefEscalafon> IRefEscalafonService.GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

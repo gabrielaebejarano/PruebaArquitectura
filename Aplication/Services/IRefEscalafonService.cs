@@ -6,9 +6,9 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SIARH.Persistence.Services
+namespace SIARH.Aplication.Services
 {
-    internal interface IRefEscalafonService
+    public interface IRefEscalafonService
     {
         Task<IEnumerable<RefEscalafon>> All();
         Task<RefEscalafon> GetById(int id);

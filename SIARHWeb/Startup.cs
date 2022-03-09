@@ -8,9 +8,9 @@ using SIARH.Persistence;
 using SIARH.Persistence.Models;
 using SIARH.Persistence.Repositories;
 using SIARH.Persistence.Repositories.Implements;
-using SIARH.Persistence.Services;
-using SIARH.Persistence.Services.Implements;
+using SIARH.Aplication.Services;
 using SIARH.Persistence.UnitOfWork;
+using SIARH.Aplication.Services.Implements;
 
 namespace WebAPIAutores1
 {
@@ -73,6 +73,7 @@ namespace WebAPIAutores1
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IRefAmbitoRepository, RefAmbitoRepository>();
             services.AddTransient<IRefAmbitoService, RefAmbitoService>();
+            services.AddTransient<IRefEscalafonService, RefEscalafonService>();
         }
 
 
